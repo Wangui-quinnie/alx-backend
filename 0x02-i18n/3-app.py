@@ -28,7 +28,8 @@ app.config.from_object(Config)
 @app.route('/')
 def hello_world():
     """Renders the index.html template"""
-    return render_template('3-index.html', title=_('home_title'), header=_('home_header'))
+    return render_template('3-index.html', title=_('home_title'),
+                           header=_('home_header'))
 
 
 @babel.localeselector
