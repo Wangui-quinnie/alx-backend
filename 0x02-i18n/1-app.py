@@ -11,7 +11,6 @@ from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
-app.config.from_object(Config)
 
 
 class Config:
@@ -22,11 +21,13 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+app.config.from_object(Config)
+
 
 @app.route('/')
 def hello_world():
     """Renders the index.html template"""
-    return render_template("0-index.html")
+    return render_template("1-index.html")
 
 
 if __name__ == "__main__":
