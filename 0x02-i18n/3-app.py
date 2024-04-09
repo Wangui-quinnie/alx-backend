@@ -6,11 +6,7 @@ Basic Flask app with Babel configuration
 
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, gettext as _
-
-
-app = Flask(__name__)
-babel = Babel(app)
+from flask_babel import Babel
 
 
 class Config:
@@ -22,15 +18,16 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
 
 
 @app.route('/')
 def hello_world():
     """Renders the index.html template"""
-    title = _('home_title')
-    header = _('home_header')
-    return render_template('3-index.html', title=title, header=header)
+    return render_template('3-index.html')
 
 
 @babel.localeselector
