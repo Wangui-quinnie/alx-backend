@@ -6,7 +6,7 @@ Basic Flask app with Babel configuration
 
 
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 
 class Config:
