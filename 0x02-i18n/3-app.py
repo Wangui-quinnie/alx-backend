@@ -6,7 +6,7 @@ Basic Flask app with Babel configuration
 
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel, gettext as _
 
 
 app = Flask(__name__)
@@ -28,8 +28,9 @@ app.config.from_object(Config)
 @app.route('/')
 def hello_world():
     """Renders the index.html template"""
-    return render_template('3-index.html', title=_('home_title'),
-                           header=_('home_header'))
+    title = _('home_title')
+    header = _('home_header')
+    return render_template('3-index.html', title=title, header=header)
 
 
 @babel.localeselector
@@ -44,4 +45,5 @@ def get_locale():
 
 
 if __name__ == "__main__":
-    app.run()
+    i
+    app.run(host='0.0.0.0', port=5000, debug=True)
